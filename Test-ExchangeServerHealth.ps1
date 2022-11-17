@@ -188,10 +188,10 @@ $logfile = "$myDir\exchangeserverhealth.log"
 #...................................
 
 $smtpsettings = @{
-    To =  "administrator@exchangeserverpro.net"
-    From = "exchangeserver@exchangeserverpro.net"
+    To =  "administrator@yourdomain.ca"
+    From = "exchangeserver@yourdomain.ca"
     Subject = "$reportemailsubject - $now"
-    SmtpServer = "smtp.exchangeserverpro.net"
+    SmtpServer = "smtp.yourdomain.ca"
     }
 
 
