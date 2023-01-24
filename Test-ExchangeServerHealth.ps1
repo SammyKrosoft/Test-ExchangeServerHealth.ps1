@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
 Test-ExchangeServerHealth.ps1 - Exchange Server Health Check Script.
 
@@ -188,10 +188,10 @@ $logfile = "$myDir\exchangeserverhealth.log"
 #...................................
 
 $smtpsettings = @{
-    To =  "administrator@yourdomain.ca"
-    From = "exchangeserver@yourdomain.ca"
+    To =  "administrator@exchangeserverpro.net"
+    From = "exchangeserver@exchangeserverpro.net"
     Subject = "$reportemailsubject - $now"
-    SmtpServer = "smtp.yourdomain.ca"
+    SmtpServer = "smtp.exchangeserverpro.net"
     }
 
 
@@ -843,6 +843,12 @@ foreach ($server in $exchangeservers)
                 {
                     $version = "Exchange 2016"
                 }
+				
+				if ($ExVer -like "Version 15.2*")
+                {
+                    $version = "Exchange 2019"
+                }
+				
                 
                 Write-Host $version
                 if ($Log) {Write-Logfile "Server is running $version"}
@@ -1424,7 +1430,11 @@ if ($($dags.count) -gt 0)
                 {
                     $contentindexstate = "Disabled"
                 }
-                else
+                elseif ($($dbcopy.ContentIndexState -match "NotApplicable") -or $($dbcopy.ContentIndexState -match "11" ))
+                {
+                    $contentindexstate = "Healthy"
+                }
+				else
                 {
                     $contentindexstate = $dbcopy.ContentIndexState
                 }
