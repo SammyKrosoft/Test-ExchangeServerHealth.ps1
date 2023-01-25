@@ -10,7 +10,7 @@ PowerShell script to generate a report of the health of an Exchange Server 2010/
 
 Performs a series of health checks on Exchange servers and DAGs and outputs the results to screen, and optionally to log file, HTML report, and HTML email.
 
-**Please note:** This script has slowly degraded over time as new versions and builds of Exchange have been released. This script is no longer being maintained for bugs, however you are free to fork the project to apply your own bug fixes and improvements to suit your needs.
+**Please note:** This script is forked from **Paul Cunningham** script, that I adapt according to my customer needs.
 
 ## Usage
 
