@@ -1,4 +1,11 @@
 # Test-ExchangeServerHealth.ps1
+
+## Update
+
+In Exchange Server 2019, content indexing is not done at the Database level anymore, but at each Mailbox level. This frees up some CPU cycles for Content Indexing. As a consequence, Get-MailboxDatabaseCopyStatus does return a "Failed" Content Indexing each time in Exchange 2019.
+
+[Changes in Exchange 2019 (from Exchange 2016)](https://www.codetwo.com/admins-blog/whats-new-in-exchange-2019/#search)
+
 PowerShell script to generate a report of the health of an Exchange Server 2010/2013 environment.
 
 Performs a series of health checks on Exchange servers and DAGs and outputs the results to screen, and optionally to log file, HTML report, and HTML email.
